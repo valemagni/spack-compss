@@ -1,3 +1,12 @@
+# Copyright 2013-2022 Lawrence Livermore National Security, LLC and other
+# Spack Project Developers. See the top-level COPYRIGHT file for details.
+#
+# SPDX-License-Identifier: (Apache-2.0 OR MIT)
+
+# ----------------------------------------------------------------------------
+# If you submit this package back to Spack as a pull request,
+# please first remove this boilerplate and all FIXME comments.
+#
 # This is a template package file for Spack.  We've put "FIXME"
 # next to all the things you'll want to change. Once you've handled
 # them, you can save this file and test your package like this:
@@ -11,7 +20,7 @@
 # See the Spack documentation for more information on packaging.
 # ----------------------------------------------------------------------------
 
-from spack import *
+from spack.package import *
 
 
 class Compss(Package):
@@ -19,16 +28,20 @@ class Compss(Package):
 
     # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://compss.bsc.es"
-    url      = "https://compss.bsc.es/repo/sc/stable/COMPSs_3.1.tar.gz"
+    url = "https://compss.bsc.es/repo/sc/stable/COMPSs_3.2.tar.gz"
 
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
-    # maintainers = ['github_user1', 'github_user2']
+    maintainers("lezzidan")
 
-    version('3.1', sha256='53880443567269faa724d1908a6bc4d82998be3cc93c77386f620c4c8a72e60d')
+    version("3.2", sha256="30d7f8e1e845fbb562057ff1b2d50a14d709208ab7ad4e1e39b74f163937672a")
+    #version("3.1", sha256="53880443567269faa724d1908a6bc4d82998be3cc93c77386f620c4c8a72e60d")
 
-        # dependencies. 
-    depends_on('python@3.6')
+    # FIXME: Add dependencies if required.
+    # depends_on("foo")
+
+    depends_on('python@3.8')
+    depends_on('py-setuptools', type='build')
     depends_on('openjdk')
     depends_on('boost')
     depends_on('libxml2')
@@ -41,7 +54,7 @@ class Compss(Package):
         import os
         print("Prefix: " + str(prefix))
         install_script = Executable('./install')
-        install_script('--only-python-3', prefix.compss)
+        install_script('-T', prefix.compss)
         print("Dirs: " +str(os.listdir(str(prefix))))
 
 

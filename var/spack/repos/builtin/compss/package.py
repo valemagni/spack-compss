@@ -34,7 +34,7 @@ class Compss(Package):
     # notify when the package is updated.
     maintainers=['lezzidan']
 
-    version("3.2", sha256="80aa3040530f465985a3edd7cce9275b584a36e000d65338a7169a0564629139")
+    version("3.2", sha256="f32825d7f26bde13cd3699f0aea14da18632b30cf08f113a06ae050033efc837")
     #version("3.2", sha256="30d7f8e1e845fbb562057ff1b2d50a14d709208ab7ad4e1e39b74f163937672a")
     #version("3.1", sha256="53880443567269faa724d1908a6bc4d82998be3cc93c77386f620c4c8a72e60d")
 
